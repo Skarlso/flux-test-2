@@ -1,0 +1,15 @@
+apiVersion: infra.contrib.fluxcd.io/v1alpha1
+kind: Terraform
+metadata:
+  annotations:
+    kustomize.toolkit.fluxcd.io/prune: disabled
+  name: super-awesome-name
+  namespace: flux-system
+spec:
+  approvePlan: auto
+  interval: 1h
+  path: ./
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+    namespace: flux-system
